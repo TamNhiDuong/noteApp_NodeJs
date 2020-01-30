@@ -2,7 +2,7 @@
 //fs.writeFileSync('notes.txt', 'Hi, this is created by NodeJs')
 //fs.appendFileSync('notes.txt', 'Append txt by Node')
 const chalk = require('chalk')
-const getNotes = require('./notes')
+const notes = require('./notes')
 const yargs = require('yargs')
 
 yargs.version('1.1.0')
@@ -25,8 +25,7 @@ yargs.command({
         }
     },
     handler: function(argv) {
-        console.log('Title: ' + argv.title)
-        console.log('Body: ' + argv.body)
+        notes.addNotes(argv.title, argv.body)
     }
 }).parse();
 //Remove command
